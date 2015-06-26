@@ -15,7 +15,7 @@ component displayname="Jsoup Whitelist Helper"
 	public array function getInvalidTags(required string content) {
 		var results = [];
 		var elements = variables.Jsoup.parse(arguments.content).body().select("*");
-		for(var element in elements) {
+		for (var element in elements) {
 			var tag = chr(60) & element.tagName() & chr(62);
 			if (!variables.Jsoup.isValid(tag, variables.Whitelist)) {
 				arrayAppend(results, tag);
