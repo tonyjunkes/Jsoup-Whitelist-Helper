@@ -67,7 +67,7 @@ component displayname="Jsoup Whitelist Helper"
 				element[tag.getKey().toString()] = {
 					"attribute": attr.getKey().toString(),
 					"value": attr.getValue().toString()
-				};	
+				};
 				arrayAppend(results, element);
 			}
 		}
@@ -84,7 +84,7 @@ component displayname="Jsoup Whitelist Helper"
 			var element = p_it.next();
 			var a_it = element.getValue().entrySet().iterator();
 			var values = [];
-			while(a_it.hasNext()) {
+			while (a_it.hasNext()) {
 				var attribute = a_it.next();
 				for (value in attribute.getValue().toArray()) {
 					arrayAppend(values, value.toString());
