@@ -3,7 +3,7 @@ component displayname="Jsoup Whitelist Helper"
 {
 	public JsoupWhitelistHelper function init(required any whitelist) {
 		variables.Jsoup = createObject("java", "org.jsoup.Jsoup");
-		if (isWhitelist(arguments.whitelist)) {
+		if (arguments.whitelist.getClass().getName() == "org.jsoup.safety.Whitelist") {
 			variables.Whitelist = arguments.whitelist;
 		} else {
 			throw("Not a valid [org.jsoup.safety.Whitelist] object.");
@@ -105,9 +105,5 @@ component displayname="Jsoup Whitelist Helper"
 		result.setAccessible(true);
 		
 		return result.get(variables.Whitelist).toString();
-	}
-
-	private boolean function isWhitelist(required any whitelist) {
-		return arguments.whitelist.getClass().getName() == "org.jsoup.safety.Whitelist";
 	}
 }
